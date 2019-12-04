@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api/bookings'
+const baseURL = 'http://localhost:3000/api/bookings/'
 
 export default {
   getBookings(){
@@ -12,5 +12,11 @@ export default {
       headers: { 'Content-Type': 'application/json'}
     })
     .then(res => res.json())
+  },
+  deleteBooking(id){
+    return fetch(baseURL + id, {
+      method: 'DELETE',
+    })
+    
   }
 }

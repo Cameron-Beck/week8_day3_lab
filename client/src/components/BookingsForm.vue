@@ -1,9 +1,9 @@
 <template lang="html">
   <form id="bookings-form" @submit.prevent="addBooking">
     <label for="guestName">Name:</label>
-    <input  id="guestName "type="text" name="" v-model="guestName">
+    <input  id="guestName "type="text" name="" v-model="guest_name" required>
     <label for="guestEmailAddress">Email address:</label>
-    <input  id="guestEmailAddress "type="text" name="" v-model="guestEmailAddress">
+    <input  id="guestEmailAddress "type="text" name="" v-model="guest_email_address" required>
     <input id="save" type="submit" name="" value="save">
   </form>
 </template>
