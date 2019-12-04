@@ -1,0 +1,8 @@
+body {
+  background-image: url('/boatel_background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}

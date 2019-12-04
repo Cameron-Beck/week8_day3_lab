@@ -1,11 +1,11 @@
 <template lang="html">
-  <section class="booking-detail">
+  <article class="booking-detail">
     <h1>this is a booking</h1>
     <p>guest name: {{booking.guest_name}}</p>
     <p>guest email: {{booking.guest_email_address}}</p>
     <p @click="toggleStatus" :value="booking._id">check in status: {{booking.checked_in}}</p>
     <button @click="deleteBooking" type="button" name="delete" :value="booking._id">Delete</button>
-  </section>
+  </article>
 </template>
 
 <script>
@@ -35,4 +35,8 @@ methods:{
 </script>
 
 <style lang="css" scoped>
+.booking-detail{
+  background: rgba(204,51,51,0.8);
+  flex-grow:  1;
+}
 </style>
