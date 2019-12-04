@@ -7,6 +7,7 @@
 <script>
 import BookingDetail from './BookingDetail.vue'
 import BookingsService from '../services/BookingsService.js'
+import {eventBus} from '../main.js'
 export default {
   name: 'booking-grid',
   data(){
@@ -20,7 +21,7 @@ export default {
 },
   mounted(){
   this.fetchData();
-
+  eventBus.$on('refresh-page', () => this.fetchData())
 },
 methods:{
   fetchData: function(){

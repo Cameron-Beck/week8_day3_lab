@@ -1,9 +1,9 @@
 <template lang="html">
   <form id="bookings-form" @submit.prevent="addBooking">
-    <label for="guestName">Name:</label>
-    <input  id="guestName "type="text" name="" v-model="guest_name" required>
-    <label for="guestEmailAddress">Email address:</label>
-    <input  id="guestEmailAddress "type="text" name="" v-model="guest_email_address" required>
+    <label for="guest_name">Name:</label>
+    <input  id="guest_name "type="text" name="" v-model="guest_name" required>
+    <label for="guest_email_address">Email address:</label>
+    <input  id="guest_email_address "type="text" name="" v-model="guest_email_address" required>
     <input id="save" type="submit" name="" value="save">
   </form>
 </template>
@@ -23,12 +23,12 @@ data(){
 methods:{
   addBooking(){
     const booking ={
-      guest_name: this.guestName,
-      guest_email_address: this.guestEmailAddress,
+      guest_name: this.guest_name,
+      guest_email_address: this.guest_email_address,
       checked_in: false
     }
     BookingsService.postBooking(booking)
-      .then(res => eventBus.$emit('booking-added', res))
+      .then(res => eventBus.$emit('refresh-page', res))
   }
 
 }

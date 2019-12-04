@@ -3,7 +3,7 @@
     <h1>this is a booking</h1>
     <p>guest name: {{booking.guest_name}}</p>
     <p>guest email: {{booking.guest_email_address}}</p>
-    <p>check in status: {{booking.checked_in}}</p>
+    <p @click="toggleStatus" :value="booking._id">check in status: {{booking.checked_in}}</p>
     <button @click="deleteBooking" type="button" name="delete" :value="booking._id">Delete</button>
   </section>
 </template>
@@ -18,8 +18,17 @@ methods:{
   deleteBooking(e){
     BookingsService.deleteBooking(e.target.value)
     .then(() => {
-      eventBus.$emit('booking-deleted', e.target.value)
+      eventBus.$emit('refresh-page', e.target.value)
     })
+  },
+  toggleStatus(){
+    this.booking.checked_in = !this.booking.checked_in;
+    const data = {
+      guest_name: this.booking.guest_name,
+      guest_email_address: this.booking.guest_email_address,
+      checked_in: this.booking.checked_in
+    };
+    BookingsService.updateStatus(this.booking._id, data)
   }
 }
 }
