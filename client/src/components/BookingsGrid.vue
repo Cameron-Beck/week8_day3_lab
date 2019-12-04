@@ -1,6 +1,6 @@
 <template lang="html">
   <section id="booking-wrapper">
-    <booking-detail v-for="(booking, index) in bookings" :booking = 'booking'></booking-detail>
+    <booking-detail v-for="(booking, index) in bookings" :booking = 'booking' :key = 'index'></booking-detail>
   </section>
 </template>
 
